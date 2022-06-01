@@ -1,0 +1,757 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/31/2022 5:56:04 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-C78BL8N"
+  DTS:CreatorName="DESKTOP-C78BL8N\Lenovo"
+  DTS:DTSID="{81829AF9-E0E9-4FB9-9298-0839B66B4E91}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="8192"
+  DTS:ObjectName="client_ods"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{3ECF2511-9941-456E-831E-F5D3B15EFD53}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\chargement de la table client_ods"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{926B49C1-A237-4F28-A0E9-C4DF2D9DC0E6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="chargement de la table client_ods"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\chargement de la table client_ods\client_ods"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="client_ods"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[client]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\chargement de la table client_ods\client_ods.Connections[OleDbConnection]"
+                  connectionManagerID="{F3B962C1-D48B-4B38-A512-47B805ADB011}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-C78BL8N.ABC]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].Columns[codeClt]"
+                      cachedDataType="i4"
+                      cachedName="codeClt"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[codeClt]"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[codeClt]" />
+                    <inputColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].Columns[nomClt]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="nomClt"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[nomClt]"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[nomClt]" />
+                    <inputColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].Columns[nomContact]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="nomContact"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[nomContact]"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[nomContact]" />
+                    <inputColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].Columns[fonctionContact]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="fonctionContact"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[fonctionContact]"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[fonctionContact]" />
+                    <inputColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].Columns[adresse]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="adresse"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[adresse]"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[adresse]" />
+                    <inputColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].Columns[ville]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="ville"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[ville]"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[ville]" />
+                    <inputColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="region"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[region]"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[region]" />
+                    <inputColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].Columns[codePostal]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="codePostal"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[codePostal]"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[codePostal]" />
+                    <inputColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].Columns[pays]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="pays"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[pays]"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[pays]" />
+                    <inputColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].Columns[tel]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="tel"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[tel]"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[tel]" />
+                    <inputColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].Columns[fax]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="fax"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[fax]"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[fax]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[codeClt]"
+                      dataType="i4"
+                      name="codeClt" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[nomClt]"
+                      dataType="wstr"
+                      length="40"
+                      name="nomClt" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[nomContact]"
+                      dataType="wstr"
+                      length="30"
+                      name="nomContact" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[fonctionContact]"
+                      dataType="wstr"
+                      length="30"
+                      name="fonctionContact" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[adresse]"
+                      dataType="wstr"
+                      length="60"
+                      name="adresse" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[ville]"
+                      dataType="wstr"
+                      length="15"
+                      name="ville" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="15"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[codePostal]"
+                      dataType="wstr"
+                      length="10"
+                      name="codePostal" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[pays]"
+                      dataType="wstr"
+                      length="15"
+                      name="pays" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[tel]"
+                      dataType="wstr"
+                      length="24"
+                      name="tel" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB].ExternalColumns[fax]"
+                      dataType="wstr"
+                      length="24"
+                      name="fax" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\chargement de la table client_ods\client_ods.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\chargement de la table client_ods\client_ods.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_ods.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\chargement de la table client_ods\client_ods.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\chargement de la table client_ods\client_TSQL"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="client_TSQL"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[Sales].[Customers]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\chargement de la table client_ods\client_TSQL.Connections[OleDbConnection]"
+                  connectionManagerID="{42CC9C1A-8F93-444E-A66F-50F90691A3D9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-C78BL8N.TSQL2012]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[codeClt]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[custid]"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[codeClt]"
+                      name="codeClt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[nomClt]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[companyname]"
+                      length="40"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[nomClt]"
+                      name="nomClt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[nomContact]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[contactname]"
+                      length="30"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[nomContact]"
+                      name="nomContact"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[fonctionContact]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[contacttitle]"
+                      length="30"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[fonctionContact]"
+                      name="fonctionContact"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[adresse]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[address]"
+                      length="60"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[adresse]"
+                      name="adresse"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[ville]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[city]"
+                      length="15"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[ville]"
+                      name="ville"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[region]"
+                      length="15"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[region]"
+                      name="region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[codePostal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[postalcode]"
+                      length="10"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[codePostal]"
+                      name="codePostal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[pays]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[country]"
+                      length="15"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[pays]"
+                      name="pays"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[tel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[phone]"
+                      length="24"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[tel]"
+                      name="tel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[fax]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[fax]"
+                      length="24"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].Columns[fax]"
+                      name="fax"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[custid]"
+                      dataType="i4"
+                      name="custid" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[companyname]"
+                      dataType="wstr"
+                      length="40"
+                      name="companyname" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[contactname]"
+                      dataType="wstr"
+                      length="30"
+                      name="contactname" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[contacttitle]"
+                      dataType="wstr"
+                      length="30"
+                      name="contacttitle" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[address]"
+                      dataType="wstr"
+                      length="60"
+                      name="address" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="15"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="15"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[postalcode]"
+                      dataType="wstr"
+                      length="10"
+                      name="postalcode" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="15"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[phone]"
+                      dataType="wstr"
+                      length="24"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[fax]"
+                      dataType="wstr"
+                      length="24"
+                      name="fax" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[custid]"
+                      dataType="i4"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[custid]"
+                      name="custid" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[companyname]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[companyname]"
+                      name="companyname" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[contactname]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[contactname]"
+                      name="contactname" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[contacttitle]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[contacttitle]"
+                      name="contacttitle" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[address]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[address]"
+                      name="address" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[city]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[region]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[postalcode]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[postalcode]"
+                      name="postalcode" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[country]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[phone]"
+                      dataType="wstr"
+                      length="24"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[phone]"
+                      name="phone" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[fax]"
+                      dataType="wstr"
+                      length="24"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[fax]"
+                      name="fax" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\chargement de la table client_ods.Paths[Sortie de source OLE DB]"
+              endId="Package\chargement de la table client_ods\client_ods.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\chargement de la table client_ods\client_TSQL.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\vider la table client_osd"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{019B5C52-60BA-4620-BBAD-B21C9FB4388E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="vider la table client_osd"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F3B962C1-D48B-4B38-A512-47B805ADB011}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="truncate table client" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2D1533D7-C260-4E93-8177-B4338132603E}"
+      DTS:From="Package\vider la table client_osd"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\chargement de la table client_ods" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="190,42"
+          Id="Package\vider la table client_osd"
+          TopLeft="309,64" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\chargement de la table client_ods"
+          TopLeft="314.5,147.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="404,106">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.5,41.5"
+              Start="0,0"
+              End="29.5,34">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.75"
+                    Point2="0,20.75"
+                    Point3="4,20.75" />
+                  <mssgle:LineSegment
+                    End="25.5,20.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.5,20.75"
+                    Point2="29.5,20.75"
+                    Point3="29.5,24.75" />
+                  <mssgle:LineSegment
+                    End="29.5,34" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\chargement de la table client_ods">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="135,42"
+          Id="Package\chargement de la table client_ods\client_TSQL"
+          TopLeft="269.5,46.5" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\chargement de la table client_ods\client_ods"
+          TopLeft="290.5,139.5" />
+        <EdgeLayout
+          Id="Package\chargement de la table client_ods.Paths[Sortie de source OLE DB]"
+          TopLeft="337,88.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.5,51"
+              Start="0,0"
+              End="16.5,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="12.5,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.5,25.5"
+                    Point2="16.5,25.5"
+                    Point3="16.5,29.5" />
+                  <mssgle:LineSegment
+                    End="16.5,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\chargement de la table client_ods\client_TSQL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\chargement de la table client_ods\client_ods">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

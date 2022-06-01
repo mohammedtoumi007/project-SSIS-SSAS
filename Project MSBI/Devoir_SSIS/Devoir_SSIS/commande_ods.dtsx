@@ -1,0 +1,629 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/31/2022 5:15:38 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-C78BL8N"
+  DTS:CreatorName="DESKTOP-C78BL8N\Lenovo"
+  DTS:DTSID="{67AF0EF1-EA46-452C-82DA-D5E1B64759E4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="8192"
+  DTS:ObjectName="commande_ods"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{B7F0120F-86AC-4D09-97DC-9C3C2D2D0CF4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\chargement de la table commande_ods"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{0F694041-7AC7-4183-9CB0-7BCEEF64C89D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="chargement de la table commande_ods"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="commande &amp; ligneCommande TSQL"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        Sales.Orders.orderid, Sales.Orders.custid, Sales.Orders.empid, Sales.OrderDetails.productid, Sales.OrderDetails.unitprice, Sales.OrderDetails.qty, Sales.OrderDetails.discount, 
+                         (Sales.OrderDetails.unitprice * Sales.OrderDetails.qty) * (1 - Sales.OrderDetails.discount) AS CALigneCde
+FROM            Sales.OrderDetails INNER JOIN
+                         Sales.Orders ON Sales.OrderDetails.orderid = Sales.Orders.orderid</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Connections[OleDbConnection]"
+                  connectionManagerID="{42CC9C1A-8F93-444E-A66F-50F90691A3D9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-C78BL8N.TSQL2012]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[numCde]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[orderid]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[numCde]"
+                      name="numCde"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[codeClt]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[custid]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[codeClt]"
+                      name="codeClt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[codeEmp]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[empid]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[codeEmp]"
+                      name="codeEmp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[codeProduit]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[productid]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[codeProduit]"
+                      name="codeProduit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[P.U.H.T]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[unitprice]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[P.U.H.T]"
+                      name="P.U.H.T"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[Qte]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[qty]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[Qte]"
+                      name="Qte"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[remise]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[discount]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[remise]"
+                      name="remise"
+                      precision="4"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[CALigneCde]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[CALigneCde]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[CALigneCde]"
+                      name="CALigneCde"
+                      precision="25"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[orderid]"
+                      dataType="i4"
+                      name="orderid" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[custid]"
+                      dataType="i4"
+                      name="custid" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[empid]"
+                      dataType="i4"
+                      name="empid" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[productid]"
+                      dataType="i4"
+                      name="productid" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[unitprice]"
+                      dataType="cy"
+                      name="unitprice" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[qty]"
+                      dataType="i2"
+                      name="qty" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[discount]"
+                      dataType="numeric"
+                      name="discount"
+                      precision="4"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].ExternalColumns[CALigneCde]"
+                      dataType="numeric"
+                      name="CALigneCde"
+                      precision="25"
+                      scale="7" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[orderid]"
+                      dataType="i4"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[orderid]"
+                      name="orderid" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[custid]"
+                      dataType="i4"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[custid]"
+                      name="custid" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[empid]"
+                      dataType="i4"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[empid]"
+                      name="empid" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[productid]"
+                      dataType="i4"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[productid]"
+                      name="productid" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[unitprice]"
+                      dataType="cy"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[unitprice]"
+                      name="unitprice" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[qty]"
+                      dataType="i2"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[qty]"
+                      name="qty" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[discount]"
+                      dataType="numeric"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[discount]"
+                      name="discount"
+                      precision="4"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[CALigneCde]"
+                      dataType="numeric"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[CALigneCde]"
+                      name="CALigneCde"
+                      precision="25"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\chargement de la table commande_ods\commande_OSD"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="commande_OSD"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[commande]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\chargement de la table commande_ods\commande_OSD.Connections[OleDbConnection]"
+                  connectionManagerID="{F3B962C1-D48B-4B38-A512-47B805ADB011}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-C78BL8N.ABC]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].Columns[numCde]"
+                      cachedDataType="i4"
+                      cachedName="numCde"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[numCde]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[numCde]" />
+                    <inputColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].Columns[codeClt]"
+                      cachedDataType="i4"
+                      cachedName="codeClt"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[codeClt]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[codeClt]" />
+                    <inputColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].Columns[codeEmp]"
+                      cachedDataType="i4"
+                      cachedName="codeEmp"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[codeEmp]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[codeEmp]" />
+                    <inputColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].Columns[codeProduit]"
+                      cachedDataType="i4"
+                      cachedName="codeProduit"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[codeProduit]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[codeProduit]" />
+                    <inputColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].Columns[P.U.H.T]"
+                      cachedDataType="cy"
+                      cachedName="P.U.H.T"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[P.U.H.T]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[P.U.H.T]" />
+                    <inputColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].Columns[Qte]"
+                      cachedDataType="i2"
+                      cachedName="Qte"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[Qte]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[Qte]" />
+                    <inputColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].Columns[remise]"
+                      cachedDataType="numeric"
+                      cachedName="remise"
+                      cachedPrecision="4"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[remise]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[remise]" />
+                    <inputColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].Columns[CALigneCde]"
+                      cachedDataType="numeric"
+                      cachedName="CALigneCde"
+                      cachedPrecision="25"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[CALigneCde]"
+                      lineageId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB].Columns[CALigneCde]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[numCde]"
+                      dataType="i4"
+                      name="numCde" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[codeClt]"
+                      dataType="i4"
+                      name="codeClt" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[codeEmp]"
+                      dataType="i4"
+                      name="codeEmp" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[codeProduit]"
+                      dataType="i4"
+                      name="codeProduit" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[P.U.H.T]"
+                      dataType="cy"
+                      name="P.U.H.T" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[Qte]"
+                      dataType="i2"
+                      name="Qte" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[remise]"
+                      dataType="numeric"
+                      name="remise"
+                      precision="4"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB].ExternalColumns[CALigneCde]"
+                      dataType="numeric"
+                      name="CALigneCde"
+                      precision="25"
+                      scale="7" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\chargement de la table commande_ods\commande_OSD.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\chargement de la table commande_ods\commande_OSD.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\chargement de la table commande_ods\commande_OSD.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\chargement de la table commande_ods\commande_OSD.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\chargement de la table commande_ods.Paths[Sortie de source OLE DB]"
+              endId="Package\chargement de la table commande_ods\commande_OSD.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\vider la table commande_OSD"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FD050819-729D-4782-B228-5F0A567F9007}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="vider la table commande_OSD"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F3B962C1-D48B-4B38-A512-47B805ADB011}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="truncate table commande" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{69E0AA54-0E68-4498-9151-E441E5AA8617}"
+      DTS:From="Package\vider la table commande_OSD"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\chargement de la table commande_ods" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="265,42"
+          Id="Package\chargement de la table commande_ods"
+          TopLeft="178.5,158.5" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\vider la table commande_OSD"
+          TopLeft="203,29" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="312.25,71">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,87.5"
+              Start="0,0"
+              End="0,80">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\chargement de la table commande_ods">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="248,42"
+          Id="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL"
+          TopLeft="256.5,81.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\chargement de la table commande_ods\commande_OSD"
+          TopLeft="255.5,200.5" />
+        <EdgeLayout
+          Id="Package\chargement de la table commande_ods.Paths[Sortie de source OLE DB]"
+          TopLeft="380.5,123.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-46.5,77"
+              Start="0,0"
+              End="-46.5,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5"
+                    Point2="0,38.5"
+                    Point3="-4,38.5" />
+                  <mssgle:LineSegment
+                    End="-42.5,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-42.5,38.5"
+                    Point2="-46.5,38.5"
+                    Point3="-46.5,42.5" />
+                  <mssgle:LineSegment
+                    End="-46.5,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\chargement de la table commande_ods\commande &amp; ligneCommande TSQL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\chargement de la table commande_ods\commande_OSD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

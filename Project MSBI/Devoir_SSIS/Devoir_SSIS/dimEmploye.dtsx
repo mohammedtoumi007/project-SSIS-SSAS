@@ -1,0 +1,1859 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/31/2022 9:40:51 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-C78BL8N"
+  DTS:CreatorName="DESKTOP-C78BL8N\Lenovo"
+  DTS:DTSID="{2E8C9A24-4F62-4876-804B-E481DB548D20}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="8192"
+  DTS:ObjectName="dimEmploye"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{5DDCBFE7-E849-423E-A2D0-247DB8FFFB0F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\création dimEmploye"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{06C9F31F-A23D-4906-A666-31A595F88794}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="création dimEmploye"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\création dimEmploye\Commande OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+              name="Commande OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dimEmploye] SET [adresse] = ?,[birthdate] = ?,[codePostal] = ?,[dateEmbauche] = ?,[fonction] = ?,[nom] = ?,[pays] = ?,[prenom] = ?,[region] = ?,[tel] = ?,[ville] = ? WHERE [codeEmp] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\création dimEmploye\Commande OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{FDDE5911-884B-4182-8BA8-986DE61B517A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-C78BL8N.DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+                  errorOrTruncationOperation="Exécution de commande"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de commande OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[adresse]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="adresse"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[adresse]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[birthdate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="birthdate"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[birthdate]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[codeEmp]"
+                      cachedDataType="i4"
+                      cachedName="codeEmp"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_11]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[codeEmp]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[codePostal]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="codePostal"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[codePostal]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[dateEmbauche]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dateEmbauche"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[dateEmbauche]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[fonction]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="fonction"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[fonction]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="nom"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_5]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[nom]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[pays]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="pays"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_6]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[pays]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[prenom]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="prenom"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_7]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[prenom]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="region"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_8]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[region]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[tel]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="tel"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_9]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[tel]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].Columns[ville]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="ville"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_10]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[ville]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="60"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      dataType="dbTimeStamp"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="10"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      dataType="dbTimeStamp"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                      dataType="wstr"
+                      length="30"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_5]"
+                      dataType="wstr"
+                      length="20"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_6]"
+                      dataType="wstr"
+                      length="15"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_7]"
+                      dataType="wstr"
+                      length="10"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_8]"
+                      dataType="wstr"
+                      length="15"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_9]"
+                      dataType="wstr"
+                      length="24"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_10]"
+                      dataType="wstr"
+                      length="15"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_11]"
+                      dataType="i4"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\création dimEmploye\Commande OLE DB.Outputs[Sortie de commande OLE DB]"
+                  exclusionGroup="1"
+                  name="Sortie de commande OLE DB"
+                  synchronousInputId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\création dimEmploye\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de commande OLE DB"
+                  synchronousInputId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\création dimEmploye\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\création dimEmploye\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\création dimEmploye\Commande OLE DB 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Exécute une instruction SQL pour chaque ligne d'un flux de données. Par exemple, appelez une procédure stockée 'nouvelle configuration d'employé' pour chaque ligne de la table 'nouveaux employés'. Remarque : l'exécution d'une instruction SQL pour chaque ligne d'un flux de données volumineux peut prendre beaucoup de temps."
+              name="Commande OLE DB 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dimEmploye] SET [adresse] = ?,[birthdate] = ?,[codePostal] = ?,[dateEmbauche] = ?,[fonction] = ?,[nom] = ?,[pays] = ?,[prenom] = ?,[region] = ?,[tel] = ?,[ville] = ? WHERE [codeEmp] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\création dimEmploye\Commande OLE DB 1.Connections[OleDbConnection]"
+                  connectionManagerID="{FDDE5911-884B-4182-8BA8-986DE61B517A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-C78BL8N.DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB]"
+                  errorOrTruncationOperation="Exécution de commande"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de commande OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[adresse]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="adresse"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[adresse]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[birthdate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="birthdate"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[birthdate]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[codeEmp]"
+                      cachedDataType="i4"
+                      cachedName="codeEmp"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_11]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[codeEmp]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[codePostal]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="codePostal"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[codePostal]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[dateEmbauche]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dateEmbauche"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[dateEmbauche]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[fonction]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="fonction"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[fonction]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="nom"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_5]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[nom]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[pays]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="pays"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_6]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[pays]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[prenom]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="prenom"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_7]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[prenom]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="region"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_8]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[region]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[tel]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="tel"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_9]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[tel]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].Columns[ville]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="ville"
+                      externalMetadataColumnId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_10]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[ville]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="60"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      dataType="dbTimeStamp"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="10"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      dataType="dbTimeStamp"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                      dataType="wstr"
+                      length="30"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_5]"
+                      dataType="wstr"
+                      length="20"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_6]"
+                      dataType="wstr"
+                      length="15"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_7]"
+                      dataType="wstr"
+                      length="10"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_8]"
+                      dataType="wstr"
+                      length="15"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_9]"
+                      dataType="wstr"
+                      length="24"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_10]"
+                      dataType="wstr"
+                      length="15"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_11]"
+                      dataType="i4"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre.  Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\création dimEmploye\Commande OLE DB 1.Outputs[Sortie de commande OLE DB]"
+                  exclusionGroup="1"
+                  name="Sortie de commande OLE DB"
+                  synchronousInputId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\création dimEmploye\Commande OLE DB 1.Outputs[Sortie d'erreur de commande OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de commande OLE DB"
+                  synchronousInputId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\création dimEmploye\Commande OLE DB 1.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Commande OLE DB 1.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\création dimEmploye\Commande OLE DB 1.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\création dimEmploye\Dimension à variation lente"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Dimension à variation lente;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;3"
+              description="Met à jour une dimension d'entrepôt de données (Data Warehouse) SQL Server Analysis Services. Mettez à jour les enregistrements de dimension qui sont déjà présents et insérez ceux qui ne le sont pas. Par exemple, mettez à jour la table DimProduct de la base de données OLAP AdventureWorksDW avec les données de la table Products dans la base de données OLTP AdventureWorks."
+              name="Dimension à variation lente"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SELECT utilisée pour créer un ensemble de lignes du schéma."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [adresse], [birthdate], [codeEmp], [codePostal], [dateEmbauche], [fonction], [nom], [pays], [prenom], [region], [tel], [ville] FROM [dbo].[dimEmploye]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la clause WHERE dans l'instruction SELECT qui sélectionne la ligne actuelle parmi les lignes comportant des clés de travail identiques."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour d'attribut d'historique sont dirigées sur la sortie de la transformation pour les mises à jour d'attribut de validation."
+                  name="UpdateChangingAttributeHistory">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque les colonnes comportant des attributs fixes contiennent des modifications."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de la colonne pour le membre déduit."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les mises à jour de membre déduit sont détectées."
+                  name="EnableInferredMember">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation échoue lorsque la recherche d'un enregistrement existant échoue."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie que toutes les lignes de l'entrée sont nouvelles ou que la transformation détecte le type de modification."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\création dimEmploye\Dimension à variation lente.Connections[LookupConnection]"
+                  connectionManagerID="{FDDE5911-884B-4182-8BA8-986DE61B517A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-C78BL8N.DWH]"
+                  description="Définit la connexion à utiliser pour faire des recherches dans la table de dimension"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]"
+                  name="Entrée de dimension à variation lente">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[adresse]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="adresse"
+                      externalMetadataColumnId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[adresse]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[adresse]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[birthdate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="birthdate"
+                      externalMetadataColumnId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[birthdate]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[birthdate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[codeEmp]"
+                      cachedDataType="i4"
+                      cachedName="codeEmp"
+                      externalMetadataColumnId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[codeEmp]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[codeEmp]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[codePostal]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="codePostal"
+                      externalMetadataColumnId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[codePostal]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[codePostal]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[dateEmbauche]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dateEmbauche"
+                      externalMetadataColumnId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[dateEmbauche]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[dateEmbauche]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[fonction]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="fonction"
+                      externalMetadataColumnId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[fonction]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[fonction]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="nom"
+                      externalMetadataColumnId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[nom]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[nom]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[pays]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="pays"
+                      externalMetadataColumnId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[pays]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[pays]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[prenom]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="prenom"
+                      externalMetadataColumnId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[prenom]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[prenom]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="region"
+                      externalMetadataColumnId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[region]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[tel]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="tel"
+                      externalMetadataColumnId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[tel]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[tel]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].Columns[ville]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="ville"
+                      externalMetadataColumnId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[ville]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[ville]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[adresse]"
+                      dataType="wstr"
+                      length="60"
+                      name="adresse" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[birthdate]"
+                      dataType="dbTimeStamp"
+                      name="birthdate" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[codeEmp]"
+                      dataType="i4"
+                      name="codeEmp" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[codePostal]"
+                      dataType="wstr"
+                      length="10"
+                      name="codePostal" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[dateEmbauche]"
+                      dataType="dbTimeStamp"
+                      name="dateEmbauche" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[fonction]"
+                      dataType="wstr"
+                      length="30"
+                      name="fonction" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="20"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[pays]"
+                      dataType="wstr"
+                      length="15"
+                      name="pays" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[prenom]"
+                      dataType="wstr"
+                      length="10"
+                      name="prenom" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="15"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[tel]"
+                      dataType="wstr"
+                      length="24"
+                      name="tel" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente].ExternalColumns[ville]"
+                      dataType="wstr"
+                      length="15"
+                      name="ville" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\création dimEmploye\Dimension à variation lente.Outputs[Sortie inchangée]"
+                  description="Lignes inchangées"
+                  exclusionGroup="1"
+                  name="Sortie inchangée"
+                  synchronousInputId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\création dimEmploye\Dimension à variation lente.Outputs[Nouvelle sortie]"
+                  description="Nouvelles lignes"
+                  exclusionGroup="1"
+                  name="Nouvelle sortie"
+                  synchronousInputId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\création dimEmploye\Dimension à variation lente.Outputs[Sortie d'attribut fixe]"
+                  description="Lignes comportant des modifications dans les colonnes marquées FixedAttribute"
+                  exclusionGroup="1"
+                  name="Sortie d'attribut fixe"
+                  synchronousInputId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\création dimEmploye\Dimension à variation lente.Outputs[Sortie de mises à jour d'attribut de validation]"
+                  description="Ces lignes contiennent de nouvelles informations sur les modifications de colonnes ChangingAttribute (type 1)"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour d'attribut de validation"
+                  synchronousInputId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\création dimEmploye\Dimension à variation lente.Outputs[Sortie d'insertions d'attribut d'historique]"
+                  description="Les modifications sur HistoricalAttribute (type 2) apparaissent dans ces nouvelles lignes"
+                  exclusionGroup="2"
+                  name="Sortie d'insertions d'attribut d'historique"
+                  synchronousInputId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\création dimEmploye\Dimension à variation lente.Outputs[Sortie de mises à jour de membre déduit]"
+                  description="Information de mise à jour de ligne de dimension initiale non remplie"
+                  exclusionGroup="1"
+                  name="Sortie de mises à jour de membre déduit"
+                  synchronousInputId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\création dimEmploye\Employe_ODS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Employe_ODS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[employe]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\création dimEmploye\Employe_ODS.Connections[OleDbConnection]"
+                  connectionManagerID="{F3B962C1-D48B-4B38-A512-47B805ADB011}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-C78BL8N.ABC]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[codeEmp]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[codeEmp]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[codeEmp]"
+                      name="codeEmp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      length="20"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[nom]"
+                      name="nom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[prenom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[prenom]"
+                      length="10"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[prenom]"
+                      name="prenom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[fonction]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[fonction]"
+                      length="30"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[fonction]"
+                      name="fonction"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[birthdate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[birthdate]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[birthdate]"
+                      name="birthdate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[dateEmbauche]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[dateEmbauche]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[dateEmbauche]"
+                      name="dateEmbauche"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[ville]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[ville]"
+                      length="15"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[ville]"
+                      name="ville"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[region]"
+                      length="15"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[region]"
+                      name="region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[codePostal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[codePostal]"
+                      length="10"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[codePostal]"
+                      name="codePostal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[pays]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[pays]"
+                      length="15"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[pays]"
+                      name="pays"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[tel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[tel]"
+                      length="24"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[tel]"
+                      name="tel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[adresse]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[adresse]"
+                      length="60"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[adresse]"
+                      name="adresse"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[codeEmp]"
+                      dataType="i4"
+                      name="codeEmp" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="20"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[prenom]"
+                      dataType="wstr"
+                      length="10"
+                      name="prenom" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[fonction]"
+                      dataType="wstr"
+                      length="30"
+                      name="fonction" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[birthdate]"
+                      dataType="dbTimeStamp"
+                      name="birthdate" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[dateEmbauche]"
+                      dataType="dbTimeStamp"
+                      name="dateEmbauche" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[ville]"
+                      dataType="wstr"
+                      length="15"
+                      name="ville" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="15"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[codePostal]"
+                      dataType="wstr"
+                      length="10"
+                      name="codePostal" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[pays]"
+                      dataType="wstr"
+                      length="15"
+                      name="pays" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[tel]"
+                      dataType="wstr"
+                      length="24"
+                      name="tel" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[adresse]"
+                      dataType="wstr"
+                      length="60"
+                      name="adresse" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[codeEmp]"
+                      dataType="i4"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[codeEmp]"
+                      name="codeEmp" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[nom]"
+                      name="nom" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[prenom]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[prenom]"
+                      name="prenom" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[fonction]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[fonction]"
+                      name="fonction" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[birthdate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[birthdate]"
+                      name="birthdate" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[dateEmbauche]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[dateEmbauche]"
+                      name="dateEmbauche" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ville]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ville]"
+                      name="ville" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[region]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[codePostal]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[codePostal]"
+                      name="codePostal" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[pays]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[pays]"
+                      name="pays" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[tel]"
+                      dataType="wstr"
+                      length="24"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[tel]"
+                      name="tel" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[adresse]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[adresse]"
+                      name="adresse" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\création dimEmploye\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[dimEmploye]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\création dimEmploye\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{FDDE5911-884B-4182-8BA8-986DE61B517A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-C78BL8N.DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].Columns[codeEmp]"
+                      cachedDataType="i4"
+                      cachedName="codeEmp"
+                      externalMetadataColumnId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[codeEmp]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[codeEmp]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].Columns[nom]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="nom"
+                      externalMetadataColumnId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[nom]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].Columns[prenom]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="prenom"
+                      externalMetadataColumnId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[prenom]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[prenom]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].Columns[fonction]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="fonction"
+                      externalMetadataColumnId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[fonction]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[fonction]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].Columns[birthdate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="birthdate"
+                      externalMetadataColumnId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[birthdate]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[birthdate]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].Columns[dateEmbauche]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dateEmbauche"
+                      externalMetadataColumnId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[dateEmbauche]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[dateEmbauche]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].Columns[ville]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="ville"
+                      externalMetadataColumnId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[ville]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[ville]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="region"
+                      externalMetadataColumnId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[region]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[region]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].Columns[codePostal]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="codePostal"
+                      externalMetadataColumnId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[codePostal]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[codePostal]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].Columns[pays]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="pays"
+                      externalMetadataColumnId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[pays]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[pays]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].Columns[tel]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="tel"
+                      externalMetadataColumnId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[tel]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[tel]" />
+                    <inputColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].Columns[adresse]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="adresse"
+                      externalMetadataColumnId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[adresse]"
+                      lineageId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB].Columns[adresse]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[id_dimEmp]"
+                      dataType="i4"
+                      name="id_dimEmp" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[codeEmp]"
+                      dataType="i4"
+                      name="codeEmp" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[nom]"
+                      dataType="wstr"
+                      length="20"
+                      name="nom" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[prenom]"
+                      dataType="wstr"
+                      length="10"
+                      name="prenom" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[fonction]"
+                      dataType="wstr"
+                      length="30"
+                      name="fonction" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[birthdate]"
+                      dataType="dbTimeStamp"
+                      name="birthdate" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[dateEmbauche]"
+                      dataType="dbTimeStamp"
+                      name="dateEmbauche" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[ville]"
+                      dataType="wstr"
+                      length="15"
+                      name="ville" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="15"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[codePostal]"
+                      dataType="wstr"
+                      length="10"
+                      name="codePostal" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[pays]"
+                      dataType="wstr"
+                      length="15"
+                      name="pays" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[tel]"
+                      dataType="wstr"
+                      length="24"
+                      name="tel" />
+                    <externalMetadataColumn
+                      refId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB].ExternalColumns[adresse]"
+                      dataType="wstr"
+                      length="60"
+                      name="adresse" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\création dimEmploye\Insert Destination.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\création dimEmploye\Insert Destination.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\création dimEmploye\Insert Destination.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\création dimEmploye\Insert Destination.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\création dimEmploye\Insert Destination.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\création dimEmploye.Paths[Nouvelle sortie]"
+              endId="Package\création dimEmploye\Insert Destination.Inputs[Entrée de destination OLE DB]"
+              name="Nouvelle sortie"
+              startId="Package\création dimEmploye\Dimension à variation lente.Outputs[Nouvelle sortie]" />
+            <path
+              refId="Package\création dimEmploye.Paths[Sortie de mises à jour d'attribut de validation]"
+              endId="Package\création dimEmploye\Commande OLE DB 1.Inputs[Entrée de commande OLE DB]"
+              name="Sortie de mises à jour d'attribut de validation"
+              startId="Package\création dimEmploye\Dimension à variation lente.Outputs[Sortie de mises à jour d'attribut de validation]" />
+            <path
+              refId="Package\création dimEmploye.Paths[Sortie de mises à jour de membre déduit]"
+              endId="Package\création dimEmploye\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
+              name="Sortie de mises à jour de membre déduit"
+              startId="Package\création dimEmploye\Dimension à variation lente.Outputs[Sortie de mises à jour de membre déduit]" />
+            <path
+              refId="Package\création dimEmploye.Paths[Sortie de source OLE DB]"
+              endId="Package\création dimEmploye\Dimension à variation lente.Inputs[Entrée de dimension à variation lente]"
+              name="Sortie de source OLE DB"
+              startId="Package\création dimEmploye\Employe_ODS.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\création dimEmploye"
+          TopLeft="202.5,90.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\création dimEmploye">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="146,42"
+          Id="Package\création dimEmploye\Employe_ODS"
+          TopLeft="242,5.49999999999989" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\création dimEmploye\Dimension à variation lente"
+          TopLeft="211.5,107.5" />
+        <EdgeLayout
+          Id="Package\création dimEmploye.Paths[Sortie de source OLE DB]"
+          TopLeft="315,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\création dimEmploye\Insert Destination"
+          TopLeft="5.50000000000006,209.5" />
+        <EdgeLayout
+          Id="Package\création dimEmploye.Paths[Nouvelle sortie]"
+          TopLeft="265.25,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-178.25,60"
+              Start="0,0"
+              End="-178.25,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5087440381558" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5087440381558"
+                    Point2="0,20.5087440381558"
+                    Point3="-4,20.5087440381558" />
+                  <mssgle:LineSegment
+                    End="-174.25,20.5087440381558" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-174.25,20.5087440381558"
+                    Point2="-178.25,20.5087440381558"
+                    Point3="-178.25,24.5087440381558" />
+                  <mssgle:LineSegment
+                    End="-178.25,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-122.26134765625,25.5087440381558,66.2726953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\création dimEmploye\Commande OLE DB"
+          TopLeft="229.5,209.5" />
+        <EdgeLayout
+          Id="Package\création dimEmploye.Paths[Sortie de mises à jour de membre déduit]"
+          TopLeft="315,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.06205078125,20.12548828125,182.1241015625,12.2490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180,42"
+          Id="Package\création dimEmploye\Commande OLE DB 1"
+          TopLeft="461,209.5" />
+        <EdgeLayout
+          Id="Package\création dimEmploye.Paths[Sortie de mises à jour d'attribut de validation]"
+          TopLeft="364.75,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="186.25,60"
+              Start="0,0"
+              End="186.25,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5087440381558" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5087440381558"
+                    Point2="0,20.5087440381558"
+                    Point3="4,20.5087440381558" />
+                  <mssgle:LineSegment
+                    End="182.25,20.5087440381558" />
+                  <mssgle:CubicBezierSegment
+                    Point1="182.25,20.5087440381558"
+                    Point2="186.25,20.5087440381558"
+                    Point3="186.25,24.5087440381558" />
+                  <mssgle:LineSegment
+                    End="186.25,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-6.70759765624997,25.5087440381558,199.6651953125,12.2490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\création dimEmploye\Employe_ODS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\création dimEmploye\Dimension à variation lente">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{FDDE5911-884B-4182-8BA8-986DE61B517A}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[dimEmploye]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Employe_ODS.Sorties[Sortie de source OLE DB].Colonnes[adresse]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;adresse&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Employe_ODS.Sorties[Sortie de source OLE DB].Colonnes[birthdate]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;birthdate&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Employe_ODS.Sorties[Sortie de source OLE DB].Colonnes[codeEmp]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;codeEmp&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Employe_ODS.Sorties[Sortie de source OLE DB].Colonnes[codePostal]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;codePostal&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Employe_ODS.Sorties[Sortie de source OLE DB].Colonnes[dateEmbauche]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;dateEmbauche&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Employe_ODS.Sorties[Sortie de source OLE DB].Colonnes[fonction]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;fonction&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Employe_ODS.Sorties[Sortie de source OLE DB].Colonnes[nom]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;nom&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Employe_ODS.Sorties[Sortie de source OLE DB].Colonnes[pays]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;pays&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Employe_ODS.Sorties[Sortie de source OLE DB].Colonnes[prenom]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;prenom&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Employe_ODS.Sorties[Sortie de source OLE DB].Colonnes[region]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;region&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Employe_ODS.Sorties[Sortie de source OLE DB].Colonnes[tel]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;tel&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Employe_ODS.Sorties[Sortie de source OLE DB].Colonnes[ville]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ville&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Commande OLE DB&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Commande OLE DB 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1265 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/31/2022 9:23:10 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-C78BL8N"
+  DTS:CreatorName="DESKTOP-C78BL8N\Lenovo"
+  DTS:DTSID="{81B270E9-F14D-4BF0-8EA0-72B1C5D0DB9C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="8192"
+  DTS:ObjectName="FactCommande"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{09221507-F0B3-4A23-BF4E-F440B5FC5E10}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\créer FactCommande"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{16B7725A-F1DC-4FE7-BB41-33CB14907A49}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="créer FactCommande"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\créer FactCommande\commande_ODS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="commande_ODS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[commande]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\créer FactCommande\commande_ODS.Connections[OleDbConnection]"
+                  connectionManagerID="{F3B962C1-D48B-4B38-A512-47B805ADB011}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-C78BL8N.ABC]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[numCde]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[numCde]"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[numCde]"
+                      name="numCde"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[codeClt]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[codeClt]"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[codeClt]"
+                      name="codeClt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[codeEmp]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[codeEmp]"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[codeEmp]"
+                      name="codeEmp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[codeProduit]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[codeProduit]"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[codeProduit]"
+                      name="codeProduit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[P.U.H.T]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[P.U.H.T]"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[P.U.H.T]"
+                      name="P.U.H.T"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[Qte]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[Qte]"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[Qte]"
+                      name="Qte"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[remise]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[remise]"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[remise]"
+                      name="remise"
+                      precision="4"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[CALigneCde]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CALigneCde]"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[CALigneCde]"
+                      name="CALigneCde"
+                      precision="25"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[numCde]"
+                      dataType="i4"
+                      name="numCde" />
+                    <externalMetadataColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[codeClt]"
+                      dataType="i4"
+                      name="codeClt" />
+                    <externalMetadataColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[codeEmp]"
+                      dataType="i4"
+                      name="codeEmp" />
+                    <externalMetadataColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[codeProduit]"
+                      dataType="i4"
+                      name="codeProduit" />
+                    <externalMetadataColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[P.U.H.T]"
+                      dataType="cy"
+                      name="P.U.H.T" />
+                    <externalMetadataColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[Qte]"
+                      dataType="i2"
+                      name="Qte" />
+                    <externalMetadataColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[remise]"
+                      dataType="numeric"
+                      name="remise"
+                      precision="4"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].ExternalColumns[CALigneCde]"
+                      dataType="numeric"
+                      name="CALigneCde"
+                      precision="25"
+                      scale="7" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[numCde]"
+                      dataType="i4"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[numCde]"
+                      name="numCde" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[codeClt]"
+                      dataType="i4"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[codeClt]"
+                      name="codeClt" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[codeEmp]"
+                      dataType="i4"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[codeEmp]"
+                      name="codeEmp" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[codeProduit]"
+                      dataType="i4"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[codeProduit]"
+                      name="codeProduit" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[P.U.H.T]"
+                      dataType="cy"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[P.U.H.T]"
+                      name="P.U.H.T" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[Qte]"
+                      dataType="i2"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[Qte]"
+                      name="Qte" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[remise]"
+                      dataType="numeric"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[remise]"
+                      name="remise"
+                      precision="4"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CALigneCde]"
+                      dataType="numeric"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[CALigneCde]"
+                      name="CALigneCde"
+                      precision="25"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\créer FactCommande\FactCommande"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="FactCommande"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[FactCommande]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\créer FactCommande\FactCommande.Connections[OleDbConnection]"
+                  connectionManagerID="{FDDE5911-884B-4182-8BA8-986DE61B517A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-C78BL8N.DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\créer FactCommande\FactCommande.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\créer FactCommande\FactCommande.Inputs[Entrée de destination OLE DB].Columns[CALigneCde]"
+                      cachedDataType="numeric"
+                      cachedName="CALigneCde"
+                      cachedPrecision="25"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\créer FactCommande\FactCommande.Inputs[Entrée de destination OLE DB].ExternalColumns[CALigneCde]"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[CALigneCde]" />
+                    <inputColumn
+                      refId="Package\créer FactCommande\FactCommande.Inputs[Entrée de destination OLE DB].Columns[id_dimClt]"
+                      cachedDataType="i4"
+                      cachedName="id_dimClt"
+                      externalMetadataColumnId="Package\créer FactCommande\FactCommande.Inputs[Entrée de destination OLE DB].ExternalColumns[id_dimClt]"
+                      lineageId="Package\créer FactCommande\Recherche id_dimClt.Outputs[Sortie de recherche avec correspondance].Columns[id_dimClt]" />
+                    <inputColumn
+                      refId="Package\créer FactCommande\FactCommande.Inputs[Entrée de destination OLE DB].Columns[id_dimProduit]"
+                      cachedDataType="i4"
+                      cachedName="id_dimProduit"
+                      externalMetadataColumnId="Package\créer FactCommande\FactCommande.Inputs[Entrée de destination OLE DB].ExternalColumns[id_dimProduit]"
+                      lineageId="Package\créer FactCommande\Recherche id_dimProduit.Outputs[Sortie de recherche avec correspondance].Columns[id_dimProduit]" />
+                    <inputColumn
+                      refId="Package\créer FactCommande\FactCommande.Inputs[Entrée de destination OLE DB].Columns[id_dimEmp]"
+                      cachedDataType="i4"
+                      cachedName="id_dimEmp"
+                      externalMetadataColumnId="Package\créer FactCommande\FactCommande.Inputs[Entrée de destination OLE DB].ExternalColumns[id_dimEmp]"
+                      lineageId="Package\créer FactCommande\Recherche id_dimEmploye.Outputs[Sortie de recherche avec correspondance].Columns[id_dimEmp]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\créer FactCommande\FactCommande.Inputs[Entrée de destination OLE DB].ExternalColumns[CALigneCde]"
+                      dataType="numeric"
+                      name="CALigneCde"
+                      precision="25"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\créer FactCommande\FactCommande.Inputs[Entrée de destination OLE DB].ExternalColumns[id_dimClt]"
+                      dataType="i4"
+                      name="id_dimClt" />
+                    <externalMetadataColumn
+                      refId="Package\créer FactCommande\FactCommande.Inputs[Entrée de destination OLE DB].ExternalColumns[id_dimProduit]"
+                      dataType="i4"
+                      name="id_dimProduit" />
+                    <externalMetadataColumn
+                      refId="Package\créer FactCommande\FactCommande.Inputs[Entrée de destination OLE DB].ExternalColumns[id_dimEmp]"
+                      dataType="i4"
+                      name="id_dimEmp" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\créer FactCommande\FactCommande.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\créer FactCommande\FactCommande.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\créer FactCommande\FactCommande.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\créer FactCommande\FactCommande.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\FactCommande.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\créer FactCommande\FactCommande.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\créer FactCommande\Recherche id_dimClt"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche id_dimClt"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dimClient]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dimClient]) [refTable]
+where [refTable].[codeClt] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id_dimClt" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="codeClt" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nomClt" dataType="DT_WSTR" length="40" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nomContact" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fonctionContact" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="adresse" dataType="DT_WSTR" length="60" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ville" dataType="DT_WSTR" length="15" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region" dataType="DT_WSTR" length="15" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="codePostal" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pays" dataType="DT_WSTR" length="15" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="tel" dataType="DT_WSTR" length="24" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fax" dataType="DT_WSTR" length="24" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[codeClt]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\créer FactCommande\Recherche id_dimClt.Connections[OleDbConnection]"
+                  connectionManagerID="{FDDE5911-884B-4182-8BA8-986DE61B517A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-C78BL8N.DWH]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\créer FactCommande\Recherche id_dimClt.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\créer FactCommande\Recherche id_dimClt.Inputs[Entrée de recherche].Columns[codeClt]"
+                      cachedDataType="i4"
+                      cachedName="codeClt"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[codeClt]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">codeClt</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\créer FactCommande\Recherche id_dimClt.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\créer FactCommande\Recherche id_dimClt.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\créer FactCommande\Recherche id_dimClt.Outputs[Sortie de recherche avec correspondance].Columns[id_dimClt]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\créer FactCommande\Recherche id_dimClt.Outputs[Sortie de recherche avec correspondance].Columns[id_dimClt]"
+                      name="id_dimClt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">id_dimClt</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\créer FactCommande\Recherche id_dimClt.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\créer FactCommande\Recherche id_dimClt.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\créer FactCommande\Recherche id_dimClt.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\créer FactCommande\Recherche id_dimClt.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\créer FactCommande\Recherche id_dimClt.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\créer FactCommande\Recherche id_dimClt.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\Recherche id_dimClt.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\créer FactCommande\Recherche id_dimClt.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\créer FactCommande\Recherche id_dimEmploye"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche id_dimEmploye"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dimEmploye]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dimEmploye]) [refTable]
+where [refTable].[codeEmp] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id_dimEmp" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="codeEmp" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nom" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="prenom" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fonction" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="birthdate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="dateEmbauche" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ville" dataType="DT_WSTR" length="15" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region" dataType="DT_WSTR" length="15" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="codePostal" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pays" dataType="DT_WSTR" length="15" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="tel" dataType="DT_WSTR" length="24" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="adresse" dataType="DT_WSTR" length="60" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[codeEmp]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\créer FactCommande\Recherche id_dimEmploye.Connections[OleDbConnection]"
+                  connectionManagerID="{FDDE5911-884B-4182-8BA8-986DE61B517A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-C78BL8N.DWH]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\créer FactCommande\Recherche id_dimEmploye.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\créer FactCommande\Recherche id_dimEmploye.Inputs[Entrée de recherche].Columns[codeEmp]"
+                      cachedDataType="i4"
+                      cachedName="codeEmp"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[codeEmp]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">codeEmp</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\créer FactCommande\Recherche id_dimEmploye.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\créer FactCommande\Recherche id_dimEmploye.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\créer FactCommande\Recherche id_dimEmploye.Outputs[Sortie de recherche avec correspondance].Columns[id_dimEmp]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\créer FactCommande\Recherche id_dimEmploye.Outputs[Sortie de recherche avec correspondance].Columns[id_dimEmp]"
+                      name="id_dimEmp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">id_dimEmp</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\créer FactCommande\Recherche id_dimEmploye.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\créer FactCommande\Recherche id_dimEmploye.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\créer FactCommande\Recherche id_dimEmploye.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\créer FactCommande\Recherche id_dimEmploye.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\créer FactCommande\Recherche id_dimEmploye.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\créer FactCommande\Recherche id_dimEmploye.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\Recherche id_dimEmploye.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\créer FactCommande\Recherche id_dimEmploye.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\créer FactCommande\Recherche id_dimProduit"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche id_dimProduit"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dimProduit]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dimProduit]) [refTable]
+where [refTable].[codeProduit] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id_dimProduit" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="codeProduit" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="designation" dataType="DT_WSTR" length="40" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="P.U.H.T" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="nomCat" dataType="DT_WSTR" length="15" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="droitRemise" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[codeProduit]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\créer FactCommande\Recherche id_dimProduit.Connections[OleDbConnection]"
+                  connectionManagerID="{FDDE5911-884B-4182-8BA8-986DE61B517A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-C78BL8N.DWH]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\créer FactCommande\Recherche id_dimProduit.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\créer FactCommande\Recherche id_dimProduit.Inputs[Entrée de recherche].Columns[codeProduit]"
+                      cachedDataType="i4"
+                      cachedName="codeProduit"
+                      lineageId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB].Columns[codeProduit]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">codeProduit</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\créer FactCommande\Recherche id_dimProduit.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\créer FactCommande\Recherche id_dimProduit.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\créer FactCommande\Recherche id_dimProduit.Outputs[Sortie de recherche avec correspondance].Columns[id_dimProduit]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\créer FactCommande\Recherche id_dimProduit.Outputs[Sortie de recherche avec correspondance].Columns[id_dimProduit]"
+                      name="id_dimProduit"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">id_dimProduit</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\créer FactCommande\Recherche id_dimProduit.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\créer FactCommande\Recherche id_dimProduit.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\créer FactCommande\Recherche id_dimProduit.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\créer FactCommande\Recherche id_dimProduit.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\créer FactCommande\Recherche id_dimProduit.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\créer FactCommande\Recherche id_dimProduit.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\créer FactCommande\Recherche id_dimProduit.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\créer FactCommande\Recherche id_dimProduit.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\créer FactCommande.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\créer FactCommande\Recherche id_dimProduit.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\créer FactCommande\Recherche id_dimClt.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\créer FactCommande.Paths[Sortie de recherche avec correspondance1]"
+              endId="Package\créer FactCommande\Recherche id_dimEmploye.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\créer FactCommande\Recherche id_dimProduit.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\créer FactCommande.Paths[Sortie de recherche avec correspondance2]"
+              endId="Package\créer FactCommande\FactCommande.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\créer FactCommande\Recherche id_dimEmploye.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\créer FactCommande.Paths[Sortie de source OLE DB]"
+              endId="Package\créer FactCommande\Recherche id_dimClt.Inputs[Entrée de recherche]"
+              name="Sortie de source OLE DB"
+              startId="Package\créer FactCommande\commande_ODS.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\vider FactCommande"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4C76C5EC-7C7E-4F0C-B684-0FD54B9F4348}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="vider FactCommande"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FDDE5911-884B-4182-8BA8-986DE61B517A}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="truncate table FactCommande" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B72BCD75-6AAA-4797-8CCB-992E8A6072FE}"
+      DTS:From="Package\vider FactCommande"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\créer FactCommande" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\créer FactCommande"
+          TopLeft="141.5,114.5" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\vider FactCommande"
+          TopLeft="138.5,22.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="229.25,64.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\créer FactCommande">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\créer FactCommande\commande_ODS"
+          TopLeft="35.5,23.5" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\créer FactCommande\Recherche id_dimEmploye"
+          TopLeft="453.5,280.5" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\créer FactCommande\Recherche id_dimProduit"
+          TopLeft="305.5,191.5" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\créer FactCommande\FactCommande"
+          TopLeft="521.5,371.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\créer FactCommande\Recherche id_dimClt"
+          TopLeft="157.5,107.5" />
+        <EdgeLayout
+          Id="Package\créer FactCommande.Paths[Sortie de source OLE DB]"
+          TopLeft="114,65.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="131,42"
+              Start="0,0"
+              End="131,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="127,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="127,21"
+                    Point2="131,21"
+                    Point3="131,25" />
+                  <mssgle:LineSegment
+                    End="131,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\créer FactCommande.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="245,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="158.5,42"
+              Start="0,0"
+              End="158.5,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="154.5,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="154.5,21"
+                    Point2="158.5,21"
+                    Point3="158.5,25" />
+                  <mssgle:LineSegment
+                    End="158.5,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-12.42701171875,26,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\créer FactCommande.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="403.5,233.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="151.5,47"
+              Start="0,0"
+              End="151.5,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="4,23.5" />
+                  <mssgle:LineSegment
+                    End="147.5,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="147.5,23.5"
+                    Point2="151.5,23.5"
+                    Point3="151.5,27.5" />
+                  <mssgle:LineSegment
+                    End="151.5,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.92701171875,28.5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\créer FactCommande.Paths[Sortie de recherche avec correspondance2]"
+          TopLeft="555,322.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.5,49"
+              Start="0,0"
+              End="42.5,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="4,24.5" />
+                  <mssgle:LineSegment
+                    End="38.5,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.5,24.5"
+                    Point2="42.5,24.5"
+                    Point3="42.5,28.5" />
+                  <mssgle:LineSegment
+                    End="42.5,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.42701171875,29.5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\créer FactCommande\Recherche id_dimClt">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dimClient]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\créer FactCommande\Recherche id_dimProduit">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dimProduit]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\créer FactCommande\Recherche id_dimEmploye">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dimEmploye]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\créer FactCommande\FactCommande">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\créer FactCommande\commande_ODS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
